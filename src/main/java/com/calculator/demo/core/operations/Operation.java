@@ -11,7 +11,7 @@ public abstract class Operation implements ICalculate {
   }
 
   @Override
-  public double calculate(double operator01, double operator02) {
-    return this.function.apply(operator01,operator02);
+  public double calculate(double operand01, double operand02) {
+    return this.function.apply(operand01,operand02);
   }
 }

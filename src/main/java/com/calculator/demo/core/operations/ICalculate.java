@@ -2,6 +2,6 @@ package com.calculator.demo.core.operations;
 
 public interface ICalculate {
 
-   double calculate(double operator01, double operator02);
+   double calculate(double operand01, double operand02);
 
 }

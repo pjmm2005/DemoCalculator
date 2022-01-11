@@ -14,9 +14,9 @@ public abstract class Calculator {
     this.operationMap = operationMap;
   }
 
-  public double makeCalculation(String operation, Double operator01, Double operator02){
+  public double makeCalculation(String operation, Double operand01, Double operand02){
     if(this.operationMap.containsKey(operation)){
-      return operationMap.get(operation).calculate(operator01,operator02);
+      return operationMap.get(operation).calculate(operand01,operand02);
     }else{
       return 0;
     }
