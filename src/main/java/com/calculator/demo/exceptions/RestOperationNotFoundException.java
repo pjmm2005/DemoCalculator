@@ -12,12 +12,4 @@ public class RestOperationNotFoundException extends RestBaseException {
     super(customHttpStatus, MESSAGE_EXCEPTION);
   }
 
-  public RestOperationNotFoundException(String reason) {
-    super(customHttpStatus, reason);
-  }
-
-  public RestOperationNotFoundException(String reason, Throwable cause) {
-    super(customHttpStatus, reason, cause);
-  }
-
 }

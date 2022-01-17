@@ -5,10 +5,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 public class RestBaseException extends ResponseStatusException {
 
-  public RestBaseException(HttpStatus status) {
-    super(status);
-  }
-
   public RestBaseException(HttpStatus status, String reason) {
     super(status, reason);
   }
