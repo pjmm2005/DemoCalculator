@@ -2,6 +2,7 @@ package com.calculator.demo.controllers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.calculator.demo.DemoCalculatorApplication;
 import com.calculator.demo.exceptions.RestOperationNotFoundException;
@@ -85,6 +86,25 @@ public class CalculatorControllerTest {
     ResponseEntity<RestOperationNotFoundException> response = restTemplate.exchange(new RequestEntity<Void>(headers, HttpMethod.GET, URI.create(uriBuilder.toUriString())), RestOperationNotFoundException.class);
 
     assertThat(response.getStatusCode().is4xxClientError()).isTrue();
+
+  }
+
+  @Test
+  public void test_availableOps() {
+    HttpHeaders headers = new HttpHeaders();
+
+    UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromHttpUrl(getfullUrl("/calculator/availableOps"));
+
+    HttpEntity<?> entity = new HttpEntity<>(headers);
+
+    ResponseEntity<String> response = restTemplate.exchange(new RequestEntity<Void>(headers, HttpMethod.GET, URI.create(uriBuilder.toUriString())), String.class);
+
+    assertNotNull(response);
+    assertNotNull(response.getBody());
+    assertThat(response.getStatusCode().is2xxSuccessful()).isTrue();
+
+    String res = response.getBody();
+    assertTrue(!res.isEmpty());
 
   }
 

@@ -27,6 +27,7 @@ public class CalculatorServiceTest {
   private LoggerImpl logger;
 
   private static final String OPERATION = "sum";
+  private static final String OPERATIONS = "sum,subtract";
 
   @Test
   public void test_calculate_if_operation_and_operands_are_correct_then_return_value(){
@@ -72,6 +73,12 @@ public class CalculatorServiceTest {
     );
 
     assertTrue(thrown.getMessage().contains("Operation not found"));
+  }
+
+  @Test
+  public void test_getAvailableOps(){
+    when(calculatorService.getAvailableOps()).thenReturn(OPERATIONS);
+    assertThat(OPERATIONS).isEqualTo(calculatorService.getAvailableOps());
   }
 
 }

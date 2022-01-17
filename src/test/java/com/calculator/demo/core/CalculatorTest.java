@@ -42,12 +42,12 @@ public class CalculatorTest {
   @Test
   public void test_setToOperationMap_if_operation_is_add_then_the_new_value_is_added_to_map(){
 
-    assertThat(sizeOfOperations(calculatorSanitas.getOperationsAvailable())).isEqualTo(2);
+    int number_of_operations = sizeOfOperations(calculatorSanitas.getOperationsAvailable());
     assertFalse(calculatorSanitas.existOperation(OPERATION_MULTIPLY));
 
     calculatorSanitas.setToOperationMap(OPERATION_MULTIPLY, new OperationMultiply());
 
-    assertThat(sizeOfOperations(calculatorSanitas.getOperationsAvailable())).isEqualTo(3);
+    assertThat(sizeOfOperations(calculatorSanitas.getOperationsAvailable())).isEqualTo(number_of_operations + 1);
     assertTrue(calculatorSanitas.existOperation(OPERATION_MULTIPLY));
   }
 
