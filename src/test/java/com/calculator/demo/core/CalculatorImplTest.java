@@ -6,14 +6,21 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.calculator.demo.core.calculator.CalculatorSanitasImpl;
 import com.calculator.demo.core.operations.OperationMultiply;
+import com.calculator.demo.core.operations.OperationSubtract;
+import com.calculator.demo.core.operations.OperationSum;
+import java.util.HashMap;
 import org.junit.jupiter.api.Test;
 
-public class CalculatorTest {
-
-  private CalculatorSanitasImpl calculatorSanitas = new CalculatorSanitasImpl();
+public class CalculatorImplTest {
 
   private static final String OPERATION_SUM = "sum";
+  private static final String OPERATION_SUBTRACT = "subtract";
   private static final String OPERATION_MULTIPLY = "multiply";
+
+  private CalculatorSanitasImpl calculatorSanitas = new CalculatorSanitasImpl(new HashMap<>() {{
+    put(OPERATION_SUM, new OperationSum());
+    put(OPERATION_SUBTRACT, new OperationSubtract());
+  }});
 
   @Test
   public void test_makeCalculation_if_operation_and_operands_are_correct_then_return_value(){
