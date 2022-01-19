@@ -17,6 +17,10 @@ As mentioned above, depending on the implementation of the calculator that is go
 calculator/availableOps
 ```
 
+## Reason for selection type of operand and result
+
+Due to the fact that in the definition of the test the criticality is not indicated in terms of the precision of the operands and the result of the operations, it has been decided to define them of type Double, in case of requiring greater precision it would be convenient to define them as BigDecimal.
+
 # Validating the application
 
 In order to validate the application, the first thing we will do is compile the application:
